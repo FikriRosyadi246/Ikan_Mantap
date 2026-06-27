@@ -1,176 +1,368 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Air Fresh Fish - Premium Fresh Seafood</title>
-    <link rel="stylesheet" href="style_ikan.css" />
-  </head>
 
-  <body>
-    <nav class="navbar">
-      <span class="logo">🐟 Air Fresh Fish</span>
-      <ul class="nav-links">
-        <li><a href="#beranda">Beranda</a></li>
-        <li><a href="#produk">Produk</a></li>
-        <li><a href="#cara-pesan">Cara Pesan</a></li>
-        <li><a href="#kontak">Kontak</a></li>
-      </ul>
-    </nav>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nala Fresh Fish - Premium Fresh Seafood & Fish</title>
+  <link rel="stylesheet" href="style_ikan.css" />
+</head>
 
-    <section id="beranda" class="hero">
-      <div class="hero-teks">
-        <span class="badge">100% Budidaya Lokal Segar</span>
-        <h1>Ikan Hidup & Segar,<br />Siap Olah di Rumah! 🌊</h1>
-        <p>
-          Garansi kualitas terbaik langsung dari kolam bersih. Dijamin higienis, bisa request dibersihkan, dan siap diantar langsung ke dapur Anda setiap pagi!
-        </p>
-        <div class="hero-buttons">
-          <a href="#produk" class="tombol">Lihat Stok Hari Ini</a>
-          <a href="#cara-pesan" class="tombol tombol-outline">Cara Pesan</a>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">
+      <span>🐟</span> Nala Fresh Fish <span class="db-badge" id="db-badge"
+        style="font-size: 0.7rem; padding: 3px 8px; border-radius: 50px; background-color: var(--border-color); color: var(--text-muted); margin-left: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Lokal</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#beranda">Beranda</a></li>
+      <li><a href="#produk">Produk</a></li>
+      <li><a href="#pelacak">Lacak Pesanan</a></li>
+      <li><a href="#cara-pesan">Cara Pesan</a></li>
+      <li><a href="#kontak">Kontak</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn-cart-nav" id="btn-cart-nav">
+        🛒 Keranjang <span class="cart-count" id="cart-count">0</span>
+      </button>
+      <a href="admin.html" class="btn-admin" target="_blank">Admin Portal ⚙️</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="beranda" class="hero">
+    <div class="hero-teks">
+      <span class="badge-hero">✨ 100% Segar & Budidaya Lokal</span>
+      <h1>Ikan Hidup & Segar,<br />Siap <span>Diantar ke Rumah!</span> 🌊</h1>
+      <p>
+        Garansi kualitas terbaik langsung dari kolam budidaya bersih. Higienis, gratis request potong/bersihkan, dan
+        siap diantar menggunakan sistem rantai dingin langsung ke dapur Anda!
+      </p>
+      <div class="hero-buttons">
+        <a href="#produk" class="tombol">Belanja Sekarang 🛒</a>
+        <a href="#pelacak" class="tombol tombol-outline">Lacak Pesanan 📍</a>
+      </div>
+    </div>
+
+    <div class="hero-img-container">
+      <div class="hero-img-backdrop"></div>
+      <!-- Emoji visual representation or stock image if any, we fall back to a generic beautiful style -->
+      <img src="image\813181276488526826.jpg" alt="Ikan Konsumsi Segar" class="hero-img" />
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">❄️</div>
+        <div class="feature-info">
+          <h3>Rantai Dingin (Cold Chain)</h3>
+          <p>Ikan dikemas dengan es batu dalam coolbox khusus agar kesegaran terjaga hingga ke tangan Anda.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔪</div>
+        <div class="feature-info">
+          <h3>Gratis Jasa Pembersihan</h3>
+          <p>Bisa request potong, bersihkan sisik, buang isi perut, atau fillet secara gratis tanpa biaya tambahan.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🤝</div>
+        <div class="feature-info">
+          <h3>Garansi Segar / COD</h3>
+          <p>Cek barang sebelum bayar di tempat (COD). Ikan tidak segar atau mati? Garansi boleh ditukar/dikembalikan.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Produk Section -->
+  <section id="produk" class="section-produk">
+    <div class="section-header">
+      <h2>Katalog Ikan & Seafood</h2>
+      <p class="subjudul">Harga fluktuatif mengikuti hasil panen harian hulu demi jaminan kualitas premium harian.</p>
+    </div>
+
+    <!-- Search & Filter Controls -->
+    <div class="katalog-controls">
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="Cari ikan segar pilihan Anda..." />
+      </div>
+      <div class="filter-categories" id="filter-categories">
+        <button class="btn-filter active" data-category="semua">Semua</button>
+        <button class="btn-filter" data-category="Ikan Hidup">Ikan Hidup</button>
+        <button class="btn-filter" data-category="Segar & Fillet">Segar & Fillet</button>
+        <button class="btn-filter" data-category="Seafood">Seafood</button>
+      </div>
+    </div>
+
+    <!-- Grid Produk Dinamis -->
+    <div class="produk-grid" id="produk-grid">
+      <!-- Rendered via JS -->
+    </div>
+  </section>
+
+  <!-- Order Tracker Section -->
+  <section id="pelacak" class="section-tracker">
+    <div class="tracker-card">
+      <h2>Pelacak Status Pesanan 📍</h2>
+      <p class="subjudul">Masukkan Kode Pesanan Anda untuk memantau status pengiriman secara real-time.</p>
+
+      <div class="tracker-form">
+        <input type="text" id="tracker-input" placeholder="Contoh: Nala-171940" />
+        <button class="tombol" id="btn-track">Lacak Pesanan</button>
+      </div>
+
+      <!-- Hasil Lacak Pesanan -->
+      <div class="tracker-result" id="tracker-result">
+        <div class="tracker-result-header">
+          <div>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">ID PESANAN</p>
+            <span class="tracker-order-id" id="track-id">-</span>
+          </div>
+          <span class="tracker-status-badge status-pending" id="track-status">PENDING</span>
+        </div>
+
+        <!-- Timeline Stepper -->
+        <div class="tracker-timeline">
+          <div class="tracker-step" id="step-pending">
+            <div class="tracker-step-dot">1</div>
+            <div class="tracker-step-label">Diterima</div>
+          </div>
+          <div class="tracker-step" id="step-proses">
+            <div class="tracker-step-dot">2</div>
+            <div class="tracker-step-label">Diproses</div>
+          </div>
+          <div class="tracker-step" id="step-dikirim">
+            <div class="tracker-step-dot">3</div>
+            <div class="tracker-step-label">Dikirim</div>
+          </div>
+          <div class="tracker-step" id="step-selesai">
+            <div class="tracker-step-dot">4</div>
+            <div class="tracker-step-label">Selesai</div>
+          </div>
+        </div>
+
+        <!-- Detail Pesanan -->
+        <div class="tracker-detail-items" id="track-details">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cara Pemesanan -->
+  <section id="cara-pesan" class="section-cara-pesan">
+    <div class="section-header">
+      <h2>Sistem Pemesanan & Pengiriman</h2>
+      <p class="subjudul">Alur transaksi cepat & aman untuk menjaga kualitas dingin (cold-chain) komoditas.</p>
+    </div>
+
+    <ol class="langkah-list">
+      <li>
+        <strong>1. Pilih Komoditas</strong>
+        <p>Tentukan varietas ikan segar atau fillet dan jumlah yang Anda butuhkan melalui katalog produk.</p>
+      </li>
+      <li>
+        <strong>2. Isi Formulir Checkout</strong>
+        <p>Klik checkout di keranjang belanja, lengkapi data kirim, serta instruksi pemotongan gratis.</p>
+      </li>
+      <li>
+        <strong>3. Konfirmasi & Catat ID</strong>
+        <p>Simpan kode pesanan (ID) Anda yang otomatis terdaftar untuk melacak pesanan di halaman website ini.</p>
+      </li>
+      <li>
+        <strong>4. Pengantaran Rantai Dingin</strong>
+        <p>Kurir kami akan mengirim ikan segar dalam wadah es khusus. Bayar dengan COD setelah barang Anda periksa.</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- Kontak Section -->
+  <section id="kontak" class="section-kontak">
+    <div class="kontak-wrap">
+      <div class="kontak-info">
+        <h3>Hubungi Kami 📞</h3>
+        <p class="subjudul" style="text-align: left; margin-bottom: 24px;">Untuk kemitraan restoran, suplai
+          hajatan/katering, atau pembelian grosir.</p>
+        <ul>
+          <li>📍 <strong>Alamat:</strong> Jl. Raya Dramaga No. 45, Bogor</li>
+          <li>📱 <strong>WhatsApp:</strong> 0812-3456-7890</li>
+          <li>📧 <strong>Email:</strong> nalafreshfish@gmail.com</li>
+          <li>⏰ <strong>Jam Operasional:</strong> Setiap Hari, 05.00–16.00 WIB</li>
+        </ul>
+
+        <div class="sosmed">
+          <a href="#"><img src="https://cdn.simpleicons.org/instagram" alt="Instagram" /></a>
+          <a href="#"><img src="https://cdn.simpleicons.org/tiktok" alt="TikTok" /></a>
+          <a href="#"><img src="https://cdn.simpleicons.org/shopee" alt="Shopee" /></a>
         </div>
       </div>
 
-      <div class="hero-img-container">
-        <img src="image/hero.jpg" alt="Ikan Konsumsi Segar" class="hero-img" />
+      <form id="form-kontak">
+        <div class="form-group">
+          <label for="nama">Nama Lengkap</label>
+          <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap Anda" required />
+        </div>
+
+        <div class="form-group">
+          <label for="telepon">Nomor WhatsApp Aktif</label>
+          <input type="tel" id="telepon" name="telepon" placeholder="Contoh: 08123456789" required />
+        </div>
+
+        <div class="form-group">
+          <label for="pesan">Pesan / Rincian Pertanyaan</label>
+          <textarea id="pesan" name="pesan" rows="4"
+            placeholder="Tulis rincian penawaran, pertanyaan, atau keluhan Anda..." required></textarea>
+        </div>
+
+        <button type="submit" class="tombol tombol-full">Kirim Inquiry Kontak 📨</button>
+        <p id="pesan-sukses">✅ Inquiry Anda berhasil terkirim! Tim kami akan segera merespons via WhatsApp.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 <strong>Nala Fresh Fish Hub</strong> &mdash; Bogor, Jawa Barat. Hak Cipta Dilindungi.</p>
+    <p>Sistem Terintegrasi Modern &bull; HTML5 &bull; Vanilla JS &bull; LocalStorage Database</p>
+  </footer>
+
+  <!-- Cart Drawer UI Overlay & Box -->
+  <div class="cart-drawer-overlay" id="cart-overlay"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-header">
+      <h3>🛒 Keranjang Belanja</h3>
+      <button class="btn-close-cart" id="btn-close-cart">&times;</button>
+    </div>
+    <div class="cart-body" id="cart-body">
+      <!-- Rendered via JS -->
+    </div>
+    <div class="cart-footer" id="cart-footer">
+      <div class="cart-summary-row">
+        <span>Estimasi Total:</span>
+        <span id="cart-total-price">Rp 0</span>
       </div>
-    </section>
+      <button class="tombol tombol-full" id="btn-checkout" disabled>Lanjutkan ke Checkout 💳</button>
+    </div>
+  </div>
 
-    <section id="produk" class="section-produk">
-      <h2>Daftar Ikan Segar</h2>
-      <p class="subjudul">Harga fluktuatif mengikuti panen harian hulu — jaminan kesegaran premium!</p>
-
-      <div class="produk-grid">
-        <div class="produk-card">
-          <div class="produk-emoji">🐟</div>
-          <div class="produk-info">
-            <h3>Ikan Lele Mutiara</h3>
-            <p class="satuan">Isi 6–8 ekor per kg</p>
-            <p class="harga" data-harga="26000">Rp 26.000 <span class="per">/kg</span></p>
-            <button class="btn-tambah" data-nama="Lele Mutiara" data-harga="26000">+ Tambah</button>
-          </div>
+  <!-- Modal Checkout -->
+  <div class="modal-overlay" id="checkout-modal">
+    <form id="form-checkout" class="modal-content">
+      <div class="modal-header">
+        <h3>Formulir Pengiriman & Pesanan</h3>
+        <button type="button" class="btn-close-cart" id="btn-close-checkout">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="checkout-nama">Nama Lengkap Penerima</label>
+          <input type="text" id="checkout-nama" required placeholder="Masukkan nama penerima" />
         </div>
-
-        <div class="produk-card">
-          <div class="produk-emoji">🐠</div>
-          <div class="produk-info">
-            <h3>Ikan Nila Merah</h3>
-            <p class="satuan">Isi 3–4 ekor per kg</p>
-            <p class="harga" data-harga="34000">Rp 34.000 <span class="per">/kg</span></p>
-            <button class="btn-tambah" data-nama="Nila Merah" data-harga="34000">+ Tambah</button>
-          </div>
+        <div class="form-group">
+          <label for="checkout-telepon">Nomor WhatsApp Aktif</label>
+          <input type="tel" id="checkout-telepon" required placeholder="Contoh: 081234567890" />
         </div>
-
-        <div class="produk-card">
-          <div class="produk-emoji">🐟</div>
-          <div class="produk-info">
-            <h3>Ikan Mas Segar</h3>
-            <p class="satuan">Isi 2–3 ekor per kg</p>
-            <p class="harga" data-harga="36000">Rp 36.000 <span class="per">/kg</span></p>
-            <button class="btn-tambah" data-nama="Ikan Mas" data-harga="36000">+ Tambah</button>
-          </div>
+        <div class="form-group">
+          <label for="checkout-alamat">Alamat Lengkap Pengiriman</label>
+          <textarea id="checkout-alamat" required rows="3"
+            placeholder="Masukkan alamat lengkap (Jalan, No Rumah, Kelurahan, Kec, Kota)"></textarea>
         </div>
-
-        <div class="produk-card">
-          <div class="produk-emoji">🐡</div>
-          <div class="produk-info">
-            <h3>Ikan Gurame Hidup</h3>
-            <p class="satuan">Ukuran Sedang per ekor (~500gr)</p>
-            <p class="harga" data-harga="25000">Rp 25.000 <span class="per">/ekor</span></p>
-            <button class="btn-tambah" data-nama="Gurame Hidup" data-harga="25000">+ Tambah</button>
-          </div>
+        <div class="form-group">
+          <label for="checkout-opsi-bersih">Opsi Penanganan Ikan (Gratis)</label>
+          <select id="checkout-opsi-bersih">
+            <option value="Utuh (Tanpa Potong)">Biarkan Utuh (Segar/Hidup)</option>
+            <option value="Bersih (Buang Sisik, Insang, Isi Perut)">Bersihkan (Buang Sisik, Insang, Isi Perut)</option>
+            <option value="Fillet (Daging Tanpa Duri)">Request Fillet (Bebas Duri)</option>
+            <option value="Potong Kepala">Potong Kepala & Bersihkan</option>
+          </select>
         </div>
-
-        <div class="produk-card">
-          <div class="produk-emoji">🐋</div>
-          <div class="produk-info">
-            <h3>Ikan Patin Super</h3>
-            <p class="satuan">Isi 1–2 ekor per kg</p>
-            <p class="harga" data-harga="28000">Rp 28.000 <span class="per">/kg</span></p>
-            <button class="btn-tambah" data-nama="Ikan Patin" data-harga="28000">+ Tambah</button>
-          </div>
+        <div class="form-group">
+          <label for="checkout-payment">Metode Pembayaran</label>
+          <select id="checkout-payment">
+            <option value="COD (Bayar di Tempat)">Cash On Delivery (COD)</option>
+            <option value="Transfer Bank (Mandiri/BCA)">Transfer Bank (MANDIRI/BCA)</option>
+            <option value="QRIS (Scan Mandiri)">QRIS</option>
+            <option value="E-Wallet (Otomatis)">E-Wallet (GoPay/OVO/DANA)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="checkout-catatan">Catatan Tambahan (Opsional)</label>
+          <input type="text" id="checkout-catatan" placeholder="Contoh: Kirim jam 7 pagi, es dikurangi dll." />
         </div>
       </div>
-
-      <div id="keranjang-info" class="keranjang-box">
-        <div class="keranjang-konten">
-          <span>🛒 Total Belanjaan: <strong id="total-item">0</strong> item</span>
-          <span>Estimasi: <strong id="total-harga">Rp 0</strong></span>
-        </div>
+      <div class="modal-footer">
+        <button type="button" class="tombol tombol-outline" id="btn-cancel-checkout">Batal</button>
+        <button type="submit" class="tombol">Lanjutkan ke Pembayaran 💳</button>
       </div>
-    </section>
+    </form>
+  </div>
 
-    <section id="cara-pesan" class="section-cara-pesan">
-      <h2>Metode Distribusi & Pemesanan</h2>
-      <p class="subjudul">Alur distribusi cepat menjamin rantai dingin (cold chain) tetap terjaga.</p>
+  <!-- MODAL PEMBAYARAN LANGSUNG -->
+  <div class="modal-overlay" id="payment-modal">
+    <div class="modal-content payment-modal-content" style="max-width: 480px; position: relative;">
+      <div class="payment-loading-overlay" id="payment-loading-screen">
+        <div class="payment-spinner"></div>
+        <h4 id="payment-loading-title"
+          style="margin-bottom: 8px; font-weight: 800; color: var(--text-main); font-size: 1.1rem;">Memproses
+          Pembayaran...</h4>
+        <p id="payment-loading-desc"
+          style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; max-width: 300px;">Mohon tunggu
+          sebentar, sistem sedang melakukan verifikasi.</p>
+      </div>
 
-      <ol class="langkah-list">
-        <li>
-          <strong>Pilih Komoditas</strong>
-          <p>Tentukan varietas ikan air tawar pilihan Anda melalui katalog di atas.</p>
-        </li>
-        <li>
-          <strong>Opsi Logistik Chat</strong>
-          <p>Kirim daftar pesanan otomatis ke manajemen via WhatsApp 0812-3456-7890.</p>
-        </li>
-        <li>
-          <strong>Custom Pemotongan</strong>
-          <p>Request penanganan (buang sisang/isi perut/fillet) tanpa biaya tambahan.</p>
-        </li>
-        <li>
-          <strong>Pengiriman Rantai Dingin</strong>
-          <p>Kurir membawa pesanan menggunakan coolbox khusus. Pembayaran sistem Cash on Delivery.</p>
-        </li>
-      </ol>
-    </section>
-
-    <section id="kontak" class="section-kontak">
-      <h2>Hubungi Kami 📞</h2>
-      <p class="subjudul">Pertanyaan seputar kemitraan resto, katering, atau suplai borongan?</p>
-      <div class="kontak-wrap">
-        <div class="kontak-info">
-          <h3>Informasi Hub & Operasional</h3>
-          <ul>
-            <li>📍 Jl. Raya Dramaga No. 45, Bogor</li>
-            <li>📱 WhatsApp: 0812-3456-7890</li>
-            <li>📧 airfreshfish@gmail.com</li>
-            <li>⏰ Setiap Hari, 05.00–16.00 WIB</li>
-          </ul>
-
-          <div class="sosmed">
-            <a href="#"><img src="https://cdn.simpleicons.org/instagram" alt="Instagram" /></a>
-            <a href="#"><img src="https://cdn.simpleicons.org/tiktok" alt="TikTok" /></a>
-            <a href="#"><img src="https://cdn.simpleicons.org/shopee" alt="Shopee" /></a>
-          </div>
+      <div class="modal-header">
+        <h3>💳 Pembayaran Pesanan</h3>
+        <button type="button" class="btn-close-modal" id="btn-close-payment">&times;</button>
+      </div>
+      <div class="modal-body" style="padding: 20px;">
+        <div class="payment-summary"
+          style="background-color: var(--primary-soft); padding: 15px; border-radius: var(--radius-md); margin-bottom: 20px; border: 1px solid var(--primary-light);">
+          <p style="margin-bottom: 6px; font-size: 0.9rem; color: var(--text-muted);">Kode Pesanan: <strong
+              id="pay-order-id" style="color: var(--text-main); font-size: 1rem;">-</strong></p>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">Total Tagihan: <strong id="pay-order-total"
+              style="color: var(--primary-hover); font-size: 1.2rem; font-weight: 800;">-</strong></p>
         </div>
 
-        <form id="form-kontak">
-          <div class="form-group">
-            <label for="nama">Nama Lengkap</label>
-            <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda" required />
-          </div>
-
-          <div class="form-group">
-            <label for="telepon">Nomor WhatsApp aktif</label>
-            <input type="tel" id="telepon" name="telepon" placeholder="Contoh: 08123456789" required />
-          </div>
-
-          <div class="form-group">
-            <label for="pesan">Pesan Spesifik</label>
-            <textarea id="pesan" name="pesan" rows="4" placeholder="Tulis rincian pertanyaan Anda..." required></textarea>
-          </div>
-
-          <button type="submit" class="tombol tombol-full">📨 Kirim Inquiry</button>
-          <p id="pesan-sukses">✅ Data berhasil diproses. Tim relasi kami akan segera menghubungi Anda kembali.</p>
-        </form>
+        <div id="payment-details-container">
+          <!-- Dinamis di-render via JS berdasarkan pilihan pembayaran -->
+        </div>
       </div>
-    </section>
+    </div>
+  </div>
 
-    <footer class="footer">
-      <p>&copy; 2026 Air Fresh Fish Hub &mdash; Bogor, Jawa Barat</p>
-      <p>Dibuat dengan optimasi penuh <strong>HTML5, Modern CSS Variables &amp; Vanilla JS</strong> 💙</p>
-    </footer>
+  <!-- MODAL SUKSES TRANSAKSI -->
+  <div class="modal-overlay" id="success-modal">
+    <div class="modal-content success-modal-content" style="text-align: center; max-width: 450px; padding: 30px;">
+      <div class="success-icon-wrapper"
+        style="margin: 15px auto 20px; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; background-color: var(--success-light); border-radius: 50%;">
+        <span style="font-size: 3rem;">✅</span>
+      </div>
+      <h3 style="margin: 0 0 10px; color: var(--success); font-weight: 800; font-size: 1.5rem;">Pemesanan Berhasil! 🎉
+      </h3>
+      <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 25px; line-height: 1.6;">
+        Pesanan Anda dengan ID <strong id="success-order-id"
+          style="color: var(--text-main); font-weight: 700;">-</strong> telah sukses dibuat dan tercatat di sistem kami.
+      </p>
 
-    <script src="script_ikan.js"></script>
-  </body>
+      <div style="display: flex; flex-direction: column; gap: 10px; width: 100%;">
+        <button type="button" class="tombol" id="btn-success-track" style="width: 100%;">Lacak Pesanan Sekarang
+          🔍</button>
+        <button type="button" class="tombol tombol-outline" id="btn-success-wa" style="width: 100%;">Hubungi Admin via
+          WA (Opsional) 💬</button>
+        <button type="button" class="tombol tombol-text" id="btn-success-close"
+          style="width: 100%; padding: 10px; background: none; border: none; color: var(--text-muted); cursor: pointer; font-weight: 600;">Kembali
+          Belanja 🛒</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="script_ikan.js"></script>
+</body>
+
 </html>
